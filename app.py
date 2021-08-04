@@ -96,8 +96,7 @@ label_map_dict = label_map_util.get_label_map_dict(label_map, use_display_name=T
 
 
 st.set_page_config(
-    page_title="Prediction App",
-    page_icon="🤖",
+    page_title="Object Detection App",
     layout="centered",
     initial_sidebar_state="expanded",
 )
