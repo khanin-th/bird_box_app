@@ -15,8 +15,6 @@ from PIL import Image, ImageDraw, ImageFont
 
 import tensorflow as tf
 
-import sys
-sys.path.insert(0, r'C:\Users\pui_s\Downloads\TensorflowObjectDetection\TFODCourse\tfod')
 import object_detection
 from object_detection.utils import label_map_util
 from object_detection.utils import config_util
@@ -61,12 +59,12 @@ def get_keypoint_tuples(eval_config):
 	
 	
 # Load pipeline config and build a detection model
-configs = config_util.get_configs_from_pipeline_file(r'C:\Users\pui_s\Documents\BirdBox_helping_drone_detect_bird\trained_ssd_mobnet\pipeline.config')
+configs = config_util.get_configs_from_pipeline_file(r'trained_ssd_mobnet\pipeline.config')
 detection_model = model_builder.build(model_config=configs['model'], is_training=False)
 
 # Restore checkpoint
 ckpt = tf.compat.v2.train.Checkpoint(model=detection_model)
-ckpt.restore(os.path.join(r'C:\Users\pui_s\Documents\BirdBox_helping_drone_detect_bird\trained_ssd_mobnet\checkpoint', 'ckpt-0')).expect_partial()
+ckpt.restore(os.path.join(r'trained_ssd_mobnet\checkpoint', 'ckpt-0')).expect_partial()
 
 def get_model_detection_function(model):
     """Get a tf.function for detection."""
