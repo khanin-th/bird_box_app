@@ -73,3 +73,28 @@ python ..\object_detection/builders/model_builder_tf2_test.py
 
 Sucessful installtion will display `OK (skipped=1)` as shown below
 ![sucessful installtion](img/cmd2.png)
+
+
+### Step 11:
+Clone this repository to the main `bird_box` folder
+```
+cd ..\..\..\..
+```
+Your cmd should now be at `bird_box` directory, next execute the git clone command
+```
+git clone https://github.com/khanin-th/bird_box_app
+move bird_box_app\* 
+```
+
+remove the cloned folder
+```
+rmdir /S bird_box_app
+```
+
+### Step 12:
+Uncompress the trained models
+```
+tar -xf trained_center_mobnet.zip
+tar -xf trained_ssd_mobnet.zip
+```
+
