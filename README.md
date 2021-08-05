@@ -96,5 +96,18 @@ Uncompress the trained models
 ```
 tar -xf trained_center_mobnet.zip
 tar -xf trained_ssd_mobnet.zip
+tar -xf asset.zip
+```
+
+### Step 13:
+Install `streamlit` for running the interactive application
+```
+pip install streamlit
+```
+
+### Step 14:
+Launch the application
+```
+streamlit run app.py
 ```
 
