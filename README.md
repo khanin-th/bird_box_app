@@ -66,7 +66,10 @@ pip install tensorflow
 ```
 
 ## Step 10:
-Test whether the installation has been done sucessfully
+Test whether the installation has been done sucessfully. Note that you might need to pip install any modules that you are lacking, i.e. `pip install matplotlib`, `pip install pyyaml`.
 ```
-python ..\object_detection/builders/model_builder_test.py
+python ..\object_detection/builders/model_builder_tf2_test.py
 ```
+
+Sucessful installtion will display `OK (skipped=1)` as shown below
+![sucessful installtion](img/cmd2.png)
