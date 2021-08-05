@@ -22,8 +22,54 @@ Activate the virtual environment to work in. Now you will notice a bracket pre-a
 
 ![cmd1](img/cmd1.png)
 
-### Step 3:
+### Step 4:
 Create 2 new directories to store `TensorFlow Object Detection API` and its dependency `prtobuf`, here I am creating a new directory called "Tensorflow" and 2 new sub-directories for such purposes
 ```
-mkdir 
+mkdir Tensorflow\models;Tensorflow\protoc
 ```
+
+### Step 5:
+Clone TensorFlow Object Detection models
+```
+git clone https://github.com/tensorflow/models Tensorflow\models
+```
+
+### Step 6:
+Download a zip file from https://github.com/protocolbuffers/protobuf/releases/download/v3.17.3/protoc-3.17.3-win64.zip for protobuf and uncompress it inside protoc folder, and navigate back to the main `bird_box` directory
+```
+move C:\Users\pui_s\Downloads\protoc-3.17.3-win64.zip Tensorflow\protoc && cd Tensorflow\protoc && tar -xf protoc-3.17.3-win64.zip
+cd ..\..
+```
+
+### Step 7:
+Copy `protoc.exe` to Scripts folder of the vistual environment
+```
+copy Tensorflow\protoc\bin\protoc.exe bird_od\Scripts
+```
+
+### Step 8:
+Navigate to `Tensorflow\models\research` and install the required `object_detection` module
+```
+cd Tensorflow\models\research && protoc object_detection/protos/*.proto --python_out=. && copy object_detection\\packages\\tf2\\setup.py setup.py && python setup.py build && python setup.py install
+```
+
+### Step 9:
+Install tf-slim
+```
+cd ..\..\..\Tensorflow/models/research/slim && pip install -e .
+```
+
+### Step 10:
+Install `tensorflow` or `tensorflow-gpu` depending on your machine via pip
+```
+pip install tensorflow
+```
+
+## Step 10:
+Test whether the installation has been done sucessfully. Note that you might need to pip install any modules that you are lacking, i.e. `pip install matplotlib`, `pip install pyyaml`.
+```
+python ..\object_detection/builders/model_builder_tf2_test.py
+```
+
+Sucessful installtion will display `OK (skipped=1)` as shown below
+![sucessful installtion](img/cmd2.png)
