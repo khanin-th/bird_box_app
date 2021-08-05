@@ -65,7 +65,7 @@ Install `tensorflow` or `tensorflow-gpu` depending on your machine via pip
 pip install tensorflow
 ```
 
-## Step 10:
+### Step 11:
 Test whether the installation has been done sucessfully. Note that you might need to pip install any modules that you are lacking, i.e. `pip install matplotlib`, `pip install pyyaml`.
 ```
 python ..\object_detection/builders/model_builder_tf2_test.py
@@ -75,7 +75,7 @@ Sucessful installtion will display `OK (skipped=1)` as shown below
 ![sucessful installtion](img/cmd2.png)
 
 
-### Step 11:
+### Step 12:
 Clone this repository to the main `bird_box` folder
 ```
 cd ..\..\..\..
@@ -91,7 +91,7 @@ remove the cloned folder
 rmdir /S bird_box_app
 ```
 
-### Step 12:
+### Step 13:
 Uncompress the trained models
 ```
 tar -xf trained_center_mobnet.zip
@@ -99,13 +99,13 @@ tar -xf trained_ssd_mobnet.zip
 tar -xf asset.zip
 ```
 
-### Step 13:
+### Step 14:
 Install `streamlit` for running the interactive application
 ```
 pip install streamlit
 ```
 
-### Step 14:
+### Step 15:
 Launch the application
 ```
 streamlit run app.py
