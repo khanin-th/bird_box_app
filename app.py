@@ -25,7 +25,7 @@ from object_detection.utils import visualization_utils as viz_utils
 from object_detection.builders import model_builder
 
 st.set_page_config(
-    page_title="Object Detection App",
+    page_title="Bird Detection App",
     layout="centered",
     initial_sidebar_state="expanded",
 )
@@ -64,10 +64,10 @@ def get_keypoint_tuples(eval_config):
         tuple_list.append((edge.start, edge.end))
     return tuple_list
 	
-option = st.selectbox('Select the model', ('Centernet', 'SSD'))
+option = st.selectbox('Select the model', ('Centernet2', 'Centernet', 'SSD', 'EfficientDet'))
 
 if option is not None:
-    if option == 'Centernet':
+    if option == 'Centernet2':
         # Load pipeline config and build a detection model
         configs = config_util.get_configs_from_pipeline_file(r'trained_center_mobnet\pipeline.config')
         detection_model = model_builder.build(model_config=configs['model'], is_training=False)
@@ -75,6 +75,16 @@ if option is not None:
         # Restore checkpoint
         ckpt = tf.compat.v2.train.Checkpoint(model=detection_model)
         ckpt.restore(os.path.join(r'trained_center_mobnet\checkpoint', 'ckpt-0')).expect_partial()
+
+    elif option == 'Centernet':
+        # Load pipeline config and build a detection model
+        configs = config_util.get_configs_from_pipeline_file(r'trained_center_mobnet2\pipeline.config')
+        detection_model = model_builder.build(model_config=configs['model'], is_training=False)
+
+        # Restore checkpoint
+        ckpt = tf.compat.v2.train.Checkpoint(model=detection_model)
+        ckpt.restore(os.path.join(r'trained_center_mobnet2\checkpoint', 'ckpt-0')).expect_partial()
+    
     
     elif option == 'SSD':
         # Load pipeline config and build a detection model
@@ -84,6 +94,16 @@ if option is not None:
         # Restore checkpoint
         ckpt = tf.compat.v2.train.Checkpoint(model=detection_model)
         ckpt.restore(os.path.join(r'trained_ssd_mobnet\checkpoint', 'ckpt-0')).expect_partial()
+    
+    elif option == 'EfficientDet':
+        # Load pipeline config and build a detection model
+        configs = config_util.get_configs_from_pipeline_file(r'trained_EfficientDet_D0\pipeline.config')
+        detection_model = model_builder.build(model_config=configs['model'], is_training=False)
+
+        # Restore checkpoint
+        ckpt = tf.compat.v2.train.Checkpoint(model=detection_model)
+        ckpt.restore(os.path.join(r'trained_EfficientDet_D0\checkpoint', 'ckpt-0')).expect_partial()
+    
 
 
     def get_model_detection_function(model):
