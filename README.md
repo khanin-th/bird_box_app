@@ -136,6 +136,10 @@ Launch the application
 streamlit run app.py
 ```
 
+# Troubleshooting
+## [SSL: CERTIFICATE_VERIFY_FAILED]
+On mac os: Go to `Application/Python x.x` and then double click on `Install Certificates.command` file
+
 # Reference:
 1. S. Deliwala, "Streamlit 101: An in-depth introduction," towardsdatascience.com, 18 November 2019. [Online]. Available: https://towardsdatascience.com/streamlit-101-an-in-depth-introduction-fc8aad9492f2. [Accessed 3 August 2021].
 1. T. Morkar, "How to use Streamlit to deploy your ML models wrapped in beautiful Web Apps," towardsdatascience.com, 28 July 2020. [Online]. Available: https://towardsdatascience.com/how-to-use-streamlit-to-deploy-your-ml-models-wrapped-in-beautiful-web-apps-66e07c3dd525. [Accessed 3 August 2021].
