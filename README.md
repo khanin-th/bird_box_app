@@ -46,16 +46,36 @@ move C:\Users\pui_s\Downloads\protoc-3.17.3-win64.zip Tensorflow\protoc && cd Te
 cd ..\..
 ```
 
+for mac os, you can find a compatible protoc here: https://github.com/protocolbuffers/protobuf/releases. After downloaded and uncompress the file, you will have a folder with the following structure <br>
+  <center>
+  protoc-x (where x is any number)
+  ├── bin
+  │   └── protoc
+  ├── include
+  │   └── google 
+  └── readme.txt
+  </center>
+Move `protoc` file from `bin` to `~/bird_od/bin`, and move `google` folder from `include` to `~/bird_od/include`
+
 ### Step 7:
 Copy `protoc.exe` to Scripts folder of the vistual environment
 ```
 copy Tensorflow\protoc\bin\protoc.exe bird_od\Scripts
 ```
+for mac os this step is already covered by __step 6__
 
 ### Step 8:
 Navigate to `Tensorflow\models\research` and install the required `object_detection` module
 ```
 cd Tensorflow\models\research && protoc object_detection/protos/*.proto --python_out=. && copy object_detection\\packages\\tf2\\setup.py setup.py && python setup.py build && python setup.py install
+```
+for mac os
+```
+cd Tensorflow/models/research
+protoc object_detection/protos/*.proto --python_out=.
+copy object_detection/packages/tf2/setup.py setup.py
+python setup.py build
+python setup.py install
 ```
 
 ### Step 9:
