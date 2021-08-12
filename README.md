@@ -20,6 +20,11 @@ Activate the virtual environment to work in. Now you will notice a bracket pre-a
 .\bird_od\Scripts\activate
 ```
 
+and for mac os
+```
+source bird_od/bin/activate
+```
+
 ![cmd1](img/cmd1.png)
 
 ### Step 4:
